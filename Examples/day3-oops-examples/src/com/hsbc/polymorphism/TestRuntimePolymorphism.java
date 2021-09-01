@@ -16,11 +16,15 @@ class C extends B {
 	void test() {
 		System.out.println("test() inside C");
 	}
+	void demo() {
+		System.out.println("demo() inside C");
+	}
 }
 class Util {
 	// understanding how we can't predict the test() method execution
 	void invoke(A ob) { // invoke can take A, B & C type of object
 		ob.test(); // at the compilation its calling test() of class A
+		
 	}
 }
 public class TestRuntimePolymorphism {

@@ -29,5 +29,8 @@ public class Employee extends Person {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
-	
+	@Override
+	public String details() {
+		return "Id = "+this.id+", Name = "+getName()+", Phone = "+getPhone()+", Salary = "+this.salary;
+	}
 }

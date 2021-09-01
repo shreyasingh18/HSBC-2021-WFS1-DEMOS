@@ -26,5 +26,8 @@ public class Person {
 	}
 	public void setPhone(long phone) {
 		this.phone = phone;
-	}	
+	}
+	public String details() {
+		return "Name = "+name+", Phone = "+phone;	
+	}
 }

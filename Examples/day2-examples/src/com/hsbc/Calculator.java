@@ -21,7 +21,7 @@ public class Calculator {
 	}
 }
 
-/*
+/*   add(20.5, 30); 
  * 
  * 
  *  Calculator calci = new Calculator();

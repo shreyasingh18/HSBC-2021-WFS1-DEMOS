@@ -3,6 +3,7 @@ package com.hsbc.controller;
 import java.util.Scanner;
 
 import com.hsbc.beans.User;
+import com.hsbc.exceptions.UserNotFoundException;
 import com.hsbc.factory.ObjectFactory;
 import com.hsbc.service.UserService;
 
@@ -32,8 +33,14 @@ public class ViewController {
 				break;
 			case 2: 
 				System.out.println("Enter id to search");
-				User u = service.fetchUserById(scan.nextInt());
-				System.out.println("Id = "+u.getUserId()+", Name = "+u.getName()+", Phone = "+u.getPhone());
+				User u;
+				try {
+					u = service.fetchUserById(scan.nextInt());
+					System.out.println("Id = "+u.getUserId()+", Name = "+u.getName()+", Phone = "+u.getPhone());
+				} catch (UserNotFoundException e) {
+					System.err.println(e.getMessage());
+				}
+				
 				break;
 			case 3: 
 				User[] allUsers = service.findAllUsers();

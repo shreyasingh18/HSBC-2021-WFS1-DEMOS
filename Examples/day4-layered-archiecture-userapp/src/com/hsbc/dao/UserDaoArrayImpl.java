@@ -1,5 +1,6 @@
 package com.hsbc.dao;
 import com.hsbc.beans.User;
+import com.hsbc.exceptions.UserNotFoundException;
 // this will main all the users in an array and its size is maximum 25
 public class UserDaoArrayImpl implements UserDao {
 	
@@ -15,7 +16,7 @@ public class UserDaoArrayImpl implements UserDao {
 	}
 
 	@Override
-	public User findById(int id) {
+	public User findById(int id) throws UserNotFoundException {
 		User[] userArray = findAll();
 		User user = null;
 		for(User u : userArray) {
@@ -23,6 +24,9 @@ public class UserDaoArrayImpl implements UserDao {
 				user = u;
 				break;
 			}
+		}
+		if(user == null) {
+			throw new UserNotFoundException("Sorry user with an id:"+id+" not found");
 		}
 		return user;
 	}

@@ -13,7 +13,7 @@ class DBOperations {
 			try { 
 				throw new SQLException("data is > 50 hence you got SQLException"); // checked exception
 			} catch(SQLException e) {
-				System.err.println(e);
+				System.err.println(e); // e.toString()
 				System.err.println(e.getMessage());
 			}
 		}
@@ -39,7 +39,7 @@ public class TestCheckedExceptions {
 		try {
 			so.find(70); // if there's an exception then it will be definitely handled here
 		} catch (SQLException e) {
-			System.err.println(e); // caller is using console
+			System.err.println(e); // caller is using console e.toString()
 		} 
 		System.out.println("program exits");
 	}

@@ -22,8 +22,9 @@ public class TestEmployeeStorePreparedStatement {
 			System.out.println("Enter dob");
 			emp.setDob(LocalDate.parse(scan.next()));
 			// above code initializes employee object
-			Class.forName(Driver.class.getName());
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hsbc_db", "root", "root");
+			
+			Connection con = DBUtility.getConnection();
+			
 			//String insertQuery = "insert into employee(name, dob) values('"+emp.getName()+"', '"+emp.getDob().toString()+"')";
 			String insertQuery = "insert into employee(name, dob) values(?, ?)";
 			PreparedStatement pstmt = con.prepareStatement(insertQuery); //? should get value from the setter methods

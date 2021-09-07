@@ -12,8 +12,7 @@ public class TestEmployeeStore {
 	public static void main(String[] args) {
 		try {
 			Scanner scan = new Scanner(System.in);
-			Class.forName(Driver.class.getName()); 
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hsbc_db", "root", "root");
+			Connection con = DBUtility.getConnection();
 			Statement stmt = con.createStatement();
 			System.out.println("Enter name:");
 			String name = scan.next();

@@ -22,8 +22,7 @@ public class TestEmployeeStoreRetrieve {
 		System.out.println("Enter dob");
 		emp.setDob(LocalDate.parse(scan.next()));
 		try {
-			Class.forName(Driver.class.getName());
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hsbc_db", "root", "root");
+			Connection con = DBUtility.getConnection();
 			Statement stmt = con.createStatement();
 			String insertQuery = "insert into employee(name, dob) values('"+emp.getName()+"', '"+emp.getDob().toString()+"')";
 			int updatedCount = stmt.executeUpdate(insertQuery);

@@ -1,0 +1,47 @@
+
+
+
+	interface ProductService { 
+		Product updateProductPrice(int id, double price);
+		Product updateProductName(int id, String name);
+	}
+
+
+	ProductServiceImpl implements ProductService { 
+		Product updateProductPrice(int id, double price) {
+			.....
+			Product p = dao.findProductById(id)
+			p.setPrice(price);
+			dao.updateProduct(p); 
+			....
+		}
+	}
+
+
+	interface ProductStore { 
+		int addProduct(Product p);
+		List<Product> getAllProducts();
+		Product findProductById(int productId) throws ProductNotFoundException
+		Product update(Product p); 
+	}
+
+
+	class ProductStoreImpl implements ProductStore { 
+
+		int addProduct(Product p) { 
+			Connection con = DbUtility.getConnection();
+		}
+		Product update(Product p) { 
+			query = "update product set name = ?, price = ? where productId = ?
+		}
+	}
+
+
+
+	class DbUtility {
+
+		Connection getConnection() { 
+			......
+			return con; 
+		}
+	}

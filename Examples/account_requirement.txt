@@ -1,0 +1,26 @@
+Account Table: account_number, name, balance
+#com.hsbc.model.beans
+Account: accountNumber, name, balance - setters & getters
+
+#com.hsbc.service
+AccountService(I): 
+	int transfer(long source, long destination, double amount)throws TransactionFailedException;
+	double getBalance(long accountNumber) throws AccountNotFoundException;
+	List<Account> getAllAccounts();
+	Account getAccount(accountNumber); throws AccountNotFoundException
+	int createAccount(Account account);
+
+#com.hsbc.dao
+AccountDao(I):
+	int save(Account account);
+	Account getAccountByNumber(long gaccountNumber)
+	updateBalance(long accountNumber, double amount)
+
+AccountServiceImpl implements AccountService  { }
+AccountDaoImpl implements AccountDao { } 
+
+
+
+
+
+	

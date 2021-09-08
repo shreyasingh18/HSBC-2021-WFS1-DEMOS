@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Arrays and loops in Javascript</h2>
+    <script>
+        var items = ["Alex", "Bruce", "Charles"];
+        for(var i = 0; i < items.length; i++) {
+            document.write("<p>"+items[i]+"</p>");
+        }
+        // another way to display the items is using <ol> & <li>
+        document.write("<ol>");
+        for(var i = 0; i < items.length; i++) {
+            if(items[i].length <= 5)
+            document.write("<li>"+items[i]+"</li>");
+        }
+        document.write("</ol>");
+    </script>
+</body>
+</html>

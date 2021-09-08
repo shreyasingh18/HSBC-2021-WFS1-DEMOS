@@ -1,0 +1,12 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.image-style {
+    width: 200px;
+    height: 200px;
+}
+.btn {
+    background-color: blue;
+    border: 2px solid black;
+    border-radius: 20px;
+}

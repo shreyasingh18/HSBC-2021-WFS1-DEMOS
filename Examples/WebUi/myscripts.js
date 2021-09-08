@@ -15,8 +15,9 @@ function fun1() {
     }
     if(a != "" || b != "") {
         fun2(parseInt(a), parseInt(b));
-        return true;
-    }   
+        // return true;
+    }  
+    document.getElementById("d1").innerHTML = "Result: "+(parseInt(a) + parseInt(b)); 
 }
 function fun2(x, y) {
     var z = x + y;

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is running in server and making AJAX call to another application</h1>
+    <hr />
+    <script>
+        function makingRequest() {
+            var url = "https://jsonplaceholder.typicode.com/users";
+            // XmlHttpRequest -> open(), send() 
+            var http = new XMLHttpRequest();  // state change 0 to 4
+            http.open("GET", url); // GET, POST, PUT, DELETE
+            http.send();
+            http.onreadystatechange = function() { 
+                if(http.readyState == 4) {
+                    var responseContent = http.responseText;
+                    var jsData = JSON.parse(responseContent); // converts JSON to Javascript
+                    var htmlContent = "<table border = '1'><tr><th>Id</th><th>Name</th></tr>";
+                    for(var x = 0; x < jsData.length; x++) {
+                        //htmlContent = htmlContent+"<p>Id = "+jsData[x].id + ", Name = "+jsData[x].name+"</p>";
+                        htmlContent = htmlContent+"<tr><td>"+jsData[x].id+"</td><td>"+jsData[x].name+"</td></tr>"
+                    }
+                    document.getElementById("d1").innerHTML = htmlContent+"</table>";
+                }
+            }
+        }
+    </script>
+    <button onclick = "makingRequest()">Click</button>
+    <div id = "d1"></div>
+</body>
+</html>

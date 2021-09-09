@@ -1,5 +1,5 @@
 [
-	{"id":1, "name":"Alex", "salary":35000, "address": {"state":"Karnataka", "City":"Bangalore"}},
-	{"id":2, "name":"Bruce", "salary":25000, "address": {"state":"Maharastra", "City":"Mumbai"}},
-	{"id":3, "name":"Charles", "salary":45000, "address": {"state":"Maharastra", "City":"Pune"}}
+	{"id":1, "name":"Alex", "salary":35000, "address": {"state":"Karnataka", "city":"Bangalore"}},
+	{"id":2, "name":"Bruce", "salary":25000, "address": {"state":"Maharastra", "city":"Mumbai"}},
+	{"id":3, "name":"Charles", "salary":45000, "address": {"state":"Maharastra", "city":"Pune"}}
 ]

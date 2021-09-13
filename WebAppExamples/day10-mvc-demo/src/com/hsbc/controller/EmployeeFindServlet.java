@@ -21,6 +21,7 @@ public class EmployeeFindServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("t1"));
+		
 		EmployeeService service = new ObjectFactory().getServiceInstance();
 		Employee employee = service.fetchEmployee(id);
 		

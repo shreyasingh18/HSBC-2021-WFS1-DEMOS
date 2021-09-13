@@ -21,6 +21,27 @@
 	</form>
 	<hr />
 	<h3>Find All Employees</h3>
-	<a href = "EmployeeFindAllServlet">All Employees</a>
+	<a href = "#" onClick = "fetchAllScript()">All Employees</a>
+	<div id = "d1"></div>
+	<script type="text/javascript">
+		function fetchAllScript() {
+			var http = new XMLHttpRequest();
+			var url = "http://localhost:8080/day10-mvc-demo/EmployeeFindAllServlet";
+			http.open("GET", url);
+			http.send();
+			http.onreadystatechange = function() {
+				if(http.readyState == 4) {
+					var result = http.responseText;
+					var js = JSON.parse(result);
+					var content = "";
+					for(var x = 0; x < js.length; x++) {
+						content = content + "<p>Id: "+js[x].id+", Name:"+js[x].name+", Dob: "
+							+js[x].dob.year+"-"+js[x].dob.month+"-"+js[x].dob.day+"</p>";
+					}
+					document.getElementById('d1').innerHTML = content;
+				}
+			}
+		}
+	</script>
 </body>
 </html>

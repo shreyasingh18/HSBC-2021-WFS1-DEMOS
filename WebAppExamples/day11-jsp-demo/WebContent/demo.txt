@@ -1,0 +1,2 @@
+Hello everyone this is inside demo.txt <br />
+We are keeping this inside WebContent folder

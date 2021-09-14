@@ -15,18 +15,33 @@
 	</form>
 	<hr />
 	<h3>Find Employee by id</h3>
-	<form action = "EmployeeFindServlet" method = "post">
-		Id <input type = "number" name = "t1"> <br />
-		<input type = "submit" value = "Search">
+	<form action = "#" >
+		Id <input type = "number" name = "t1" id = "empId"> <br />
+		<input type = "button" value = "Search" onclick = "fetchByIdScript()">
 	</form>
+	<div id = "d"></div>
 	<hr />
 	<h3>Find All Employees</h3>
 	<a href = "#" onClick = "fetchAllScript()">All Employees</a>
 	<div id = "d1"></div>
 	<script type="text/javascript">
+		function fetchByIdScript() {
+			var idValue = document.getElementById("empId").value;
+			var url = "http://localhost:8080/day10-mvc-demo/EmployeeFindServlet";
+			var http = new XMLHttpRequest();
+			http.open("POST", url);
+			http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			http.send("t1="+idValue);
+			http.onreadystatechange = function() { 
+				if(http.readyState == 4) {
+					document.getElementById("d").innerHTML = http.responseText;
+				}
+			}
+		}
 		function fetchAllScript() {
 			var http = new XMLHttpRequest();
 			var url = "http://localhost:8080/day10-mvc-demo/EmployeeFindAllServlet";
+			
 			http.open("GET", url);
 			http.send();
 			http.onreadystatechange = function() {

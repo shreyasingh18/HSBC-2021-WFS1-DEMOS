@@ -1,11 +1,16 @@
 package com.hsbc.controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hsbc.beans.Employee;
 
@@ -28,9 +33,24 @@ public class SecondServlet extends HttpServlet {
 		request.setAttribute("e1", employee1); // ${e1.id} ${e1.name} ${e1.salary}
 		request.setAttribute("e2", employee2); // ${e1.id} ${e1.name} ${e1.salary}
 		
-		request.getRequestDispatcher("third.jsp").forward(request, response);
 		
-		//2nd way is storing both the employees in a collection & storing collection in a single key
+		//2nd way is storing multiple employees in a collection & storing collection in a single key
+		List<Employee> employees = new ArrayList<Employee>();
+		employees.add(employee1);
+		employees.add(employee2);
+		request.setAttribute("emps", employees);
+		request.setAttribute("x", "Hello World");
+		
+		// storing the data in a session scope
+		HttpSession session = request.getSession(); 
+		session.setAttribute("emps", employees);
+		session.setAttribute("x", "Welcome World");
+		
+		// storing the data in a context scope
+		ServletContext ctx = getServletContext();
+		ctx.setAttribute("x", "Thank you");
+		
+		request.getRequestDispatcher("third.jsp").forward(request, response);
 		
 	}
 

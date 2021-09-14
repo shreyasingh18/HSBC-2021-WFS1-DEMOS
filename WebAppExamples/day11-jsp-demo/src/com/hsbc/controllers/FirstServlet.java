@@ -27,6 +27,4 @@ public class FirstServlet extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	
-
 }

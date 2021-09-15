@@ -24,6 +24,19 @@
 	<c:forEach items = "${sessionScope.emps}" var = "e">
 		<p>Hello ${e.name}, Salary is: ${e.id}</p>
 	</c:forEach>
+	
+	<h3>This is creating table</h3>
+	<table border = "1">
+		<tr>
+			<th>ID</th> <th>Name</th>
+		</tr>
+		<c:forEach items = "${sessionScope.emps}" var = "e">
+			<tr>
+				<td>${e.id}</td> <td>${e.name}</td>
+			</tr>
+		</c:forEach>
+	</table>
+	
 	<h3>Value of x from request: ${requestScope.x}</h3>
 	<h3>Value of x from session: ${sessionScope.x}</h3>
 	<h3>Value of x from application: ${applicationScope.x}</h3>

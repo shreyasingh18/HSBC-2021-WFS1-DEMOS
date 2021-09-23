@@ -30,9 +30,11 @@ public class TestStreams2 {
 		/*
 		 * New approach getting only the names in the employee and keeping in the List<String>
 		 */
-		List<String> listOfNames = employees.stream().map(e -> e.getName()).collect(Collectors.toList());
+		List<String> listOfNames = employees.stream().map(e -> e.getName()).distinct().collect(Collectors.toList());
 		System.out.println(listOfNames);
 		List<Integer> listOfIds = employees.stream().map(e -> e.getId()).collect(Collectors.toList());
 		System.out.println(listOfIds);
+		long count = employees.stream().filter(e -> e.getSalary() > 40000 && e.getSalary() < 70000).count();
+		System.out.println("Count: "+count);
 	}
 }
